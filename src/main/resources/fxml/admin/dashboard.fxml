@@ -1,0 +1,294 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gymmanagement.controllers.admin.AdminDashboardController">
+    <left>
+        <!-- Sidebar navigation -->
+        <VBox prefWidth="250.0" styleClass="sidebar">
+            <padding>
+                <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+            </padding>
+            <children>
+                <Label styleClass="sidebar-title" text="GymTrack Pro" />
+                
+                <Label styleClass="text-light" text="MAIN MENU">
+                    <padding>
+                        <Insets left="15.0" top="20.0" bottom="10.0" />
+                    </padding>
+                </Label>
+                
+                <HBox styleClass="sidebar-item, sidebar-item-selected">
+                    <children>
+                        <Label styleClass="text-light" text="Dashboard" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="membersNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Members" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="trainersNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Trainers" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="paymentsNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Payments" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="workoutPlansNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Workout Plans" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <Label styleClass="text-light" text="MANAGEMENT">
+                    <padding>
+                        <Insets left="15.0" top="20.0" bottom="10.0" />
+                    </padding>
+                </Label>
+                
+                <HBox fx:id="reportsNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Reports" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="settingsNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Settings" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <Region VBox.vgrow="ALWAYS" />
+                
+                <Button fx:id="logoutButton" styleClass="button-transparent" text="Logout">
+                    <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <!-- Dashboard content -->
+        <VBox styleClass="content-area">
+            <children>
+                <!-- Header section -->
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="dashboard-title" text="Admin Dashboard" />
+                                <Label fx:id="welcomeLabel" styleClass="text-secondary" text="Welcome, Admin" />
+                            </children>
+                        </VBox>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button styleClass="button-accent" text="New Member" />
+                                <Button styleClass="button-secondary" text="New Trainer" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </HBox>
+                
+                <!-- Statistics cards -->
+                <HBox spacing="20.0">
+                    <children>
+                        <!-- Members Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Total Members" />
+                                <Label fx:id="totalMembersLabel" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-label" text="Active gym members" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Trainers Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Total Trainers" />
+                                <Label fx:id="totalTrainersLabel" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-label" text="Professional coaches" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Users Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Active Users" />
+                                <Label fx:id="activeUsersLabel" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-label" text="Currently active users" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Revenue Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Monthly Revenue" />
+                                <Label fx:id="revenueLabel" styleClass="stat-value" text="$0" />
+                                <Label styleClass="stat-label" text="Current month earnings" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </HBox>
+                
+                <!-- Main content section -->
+                <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                    <!-- Left Content -->
+                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                        <!-- Recent Members -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label styleClass="card-title" text="Recent Members" HBox.hgrow="ALWAYS" />
+                                        <Button styleClass="button-transparent" text="View All" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                
+                                <TableView VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn prefWidth="200.0" text="Name" />
+                                        <TableColumn prefWidth="150.0" text="Membership" />
+                                        <TableColumn prefWidth="120.0" text="Join Date" />
+                                        <TableColumn prefWidth="100.0" text="Status" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No members found" />
+                                    </placeholder>
+                                </TableView>
+                            </children>
+                        </VBox>
+                        
+                        <!-- Recent Payments -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label styleClass="card-title" text="Recent Payments" HBox.hgrow="ALWAYS" />
+                                        <Button styleClass="button-transparent" text="View All" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                
+                                <TableView VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn prefWidth="200.0" text="Member" />
+                                        <TableColumn prefWidth="120.0" text="Amount" />
+                                        <TableColumn prefWidth="150.0" text="Date" />
+                                        <TableColumn prefWidth="100.0" text="Status" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No payments found" />
+                                    </placeholder>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </VBox>
+                    
+                    <!-- Right Content -->
+                    <VBox spacing="20.0" prefWidth="350.0">
+                        <!-- Membership Distribution -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Membership Distribution" />
+                                <PieChart VBox.vgrow="ALWAYS" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Notifications -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Recent Notifications" />
+                                
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <VBox styleClass="bordered, rounded, padding">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label styleClass="font-weight-bold" text="New Member Registration" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-muted, font-sm" text="2 hours ago" />
+                                                    </children>
+                                                </HBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="John Smith has registered as a new member." wrappingWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </VBox.margin>
+                                                </Text>
+                                            </children>
+                                        </VBox>
+                                        
+                                        <VBox styleClass="bordered, rounded, padding">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label styleClass="font-weight-bold" text="Payment Received" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-muted, font-sm" text="Yesterday" />
+                                                    </children>
+                                                </HBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="$129.99 payment received from Emma Johnson." wrappingWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </VBox.margin>
+                                                </Text>
+                                            </children>
+                                        </VBox>
+                                        
+                                        <VBox styleClass="bordered, rounded, padding">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label styleClass="font-weight-bold" text="Membership Expiring" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-muted, font-sm" text="2 days ago" />
+                                                    </children>
+                                                </HBox>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5 memberships are expiring in the next 7 days." wrappingWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </VBox.margin>
+                                                </Text>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                
+                                <Button styleClass="button-transparent" text="View All Notifications">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

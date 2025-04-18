@@ -1,73 +1,86 @@
-# Welcome to your Lovable project
 
-## Project info
+# GymTrack Pro - Gym Management System
 
-**URL**: https://lovable.dev/projects/7cee85c6-d7ea-4e67-b692-fe8cab4a0a09
+A complete JavaFX-based gym management system with dedicated dashboards for administrators, members, and trainers.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+### Admin Dashboard
+- Member management
+- Trainer management
+- Payment tracking
+- Membership plans
+- Reports and analytics
+- System settings
 
-**Use Lovable**
+### Member Dashboard
+- View profile and membership details
+- Track workout progress
+- Access workout plans
+- View payment history
+- Schedule sessions with trainers
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7cee85c6-d7ea-4e67-b692-fe8cab4a0a09) and start prompting.
+### Trainer Dashboard
+- Manage client list
+- Create workout plans
+- Track client progress
+- Manage schedule
+- View earnings
 
-Changes made via Lovable will be committed automatically to this repo.
+## Database Schema
 
-**Use your preferred IDE**
+The system is designed to work with the following database tables:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
++-------------------+
+| Tables_in_gymdb   |
++-------------------+
+| members           |
+| payments          |
+| progress          |
+| progress_tracking |
+| trainers          |
+| users             |
+| workout_plans     |
++-------------------+
 ```
 
-**Edit a file directly in GitHub**
+## Demo Credentials
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+For testing purposes, use the following credentials:
 
-**Use GitHub Codespaces**
+- **Admin**: Username: `admin`, Password: `admin123`
+- **Member**: Username: `member1`, Password: `member123`
+- **Trainer**: Username: `trainer1`, Password: `trainer123`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Getting Started
 
-## What technologies are used for this project?
+1. Clone the repository
+2. Open in your favorite Java IDE (IntelliJ IDEA, Eclipse, etc.)
+3. Ensure you have JavaFX SDK installed
+4. Configure the database in `DatabaseConnector.java` if connecting to a real database
+5. Run the Main.java file
 
-This project is built with:
+## Technologies Used
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- JavaFX for UI
+- CSS for styling
+- FXML for layout design
+- Java for backend logic
+- MySQL for database (optional)
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/7cee85c6-d7ea-4e67-b692-fe8cab4a0a09) and click on Share -> Publish.
+- `src/main/java/com/gymmanagement/` - Java source files
+  - `controllers/` - FXML Controllers
+  - `models/` - Data models
+  - `dao/` - Data Access Objects
+  - `utils/` - Utility classes
+- `src/main/resources/` - Resources
+  - `fxml/` - FXML layout files
+  - `css/` - CSS style sheets
+  - `images/` - Image resources
 
-## Can I connect a custom domain to my Lovable project?
+## Screenshots
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*[Screenshots would be included here once the application is running]*

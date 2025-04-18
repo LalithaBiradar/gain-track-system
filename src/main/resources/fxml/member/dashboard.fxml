@@ -1,0 +1,325 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gymmanagement.controllers.member.MemberDashboardController">
+    <left>
+        <!-- Sidebar navigation -->
+        <VBox prefWidth="250.0" styleClass="sidebar">
+            <padding>
+                <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+            </padding>
+            <children>
+                <Label styleClass="sidebar-title" text="GymTrack Pro" />
+                
+                <Label styleClass="text-light" text="MEMBER MENU">
+                    <padding>
+                        <Insets left="15.0" top="20.0" bottom="10.0" />
+                    </padding>
+                </Label>
+                
+                <HBox fx:id="dashboardNav" styleClass="sidebar-item, sidebar-item-selected">
+                    <children>
+                        <Label styleClass="text-light" text="Dashboard" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="workoutPlansNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Workout Plans" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="progressNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Progress Tracking" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="paymentsNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="Payments" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <HBox fx:id="profileNav" styleClass="sidebar-item">
+                    <children>
+                        <Label styleClass="text-light" text="My Profile" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                
+                <Region VBox.vgrow="ALWAYS" />
+                
+                <Button fx:id="logoutButton" styleClass="button-transparent" text="Logout">
+                    <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <!-- Dashboard content -->
+        <VBox styleClass="content-area">
+            <children>
+                <!-- Header section -->
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="dashboard-title" text="Member Dashboard" />
+                                <Label fx:id="welcomeLabel" styleClass="text-secondary" text="Welcome, Member" />
+                            </children>
+                        </VBox>
+                        <Button styleClass="button-accent" text="Book a Session" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </HBox>
+                
+                <!-- Statistics cards -->
+                <HBox spacing="20.0">
+                    <children>
+                        <!-- Membership Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="My Membership" />
+                                <Label fx:id="membershipLabel" styleClass="stat-value" text="Free Trial" />
+                                <Label styleClass="stat-label" text="Current plan" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Expiry Date Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Expiry Date" />
+                                <Label fx:id="expiryDateLabel" styleClass="stat-value" text="N/A" />
+                                <Label styleClass="stat-label" text="Membership valid until" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Upcoming Sessions Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Upcoming Sessions" />
+                                <Label fx:id="upcomingSessionsLabel" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-label" text="Scheduled with trainers" />
+                            </children>
+                        </VBox>
+                        
+                        <!-- Bodyweight Card -->
+                        <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Current Weight" />
+                                <Label fx:id="bodyweightLabel" styleClass="stat-value" text="0 kg" />
+                                <Label styleClass="stat-label" text="Last recorded weight" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </HBox>
+                
+                <!-- Main content section -->
+                <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                    <!-- Left Content -->
+                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                        <!-- Progress Chart -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="My Progress" />
+                                <LineChart VBox.vgrow="ALWAYS">
+                                    <xAxis>
+                                        <CategoryAxis label="Month" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis label="Weight (kg)" />
+                                    </yAxis>
+                                </LineChart>
+                            </children>
+                        </VBox>
+                        
+                        <!-- Upcoming Workouts -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label styleClass="card-title" text="My Workout Plan" HBox.hgrow="ALWAYS" />
+                                        <Button styleClass="button-transparent" text="View All" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                
+                                <TableView VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn prefWidth="100.0" text="Day" />
+                                        <TableColumn prefWidth="200.0" text="Exercise" />
+                                        <TableColumn prefWidth="100.0" text="Sets" />
+                                        <TableColumn prefWidth="100.0" text="Reps" />
+                                        <TableColumn prefWidth="150.0" text="Weight/Intensity" />
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No workout plan found" />
+                                    </placeholder>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </VBox>
+                    
+                    <!-- Right Content -->
+                    <VBox spacing="20.0" prefWidth="350.0">
+                        <!-- Profile Summary -->
+                        <VBox styleClass="card">
+                            <children>
+                                <Label styleClass="card-title" text="My Profile" />
+                                
+                                <VBox styleClass="padding-sm">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="text-muted" text="Name:" prefWidth="120.0" />
+                                                <Label text="John Doe" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                        
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="text-muted" text="Email:" prefWidth="120.0" />
+                                                <Label text="john.doe@example.com" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                        
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="text-muted" text="Phone:" prefWidth="120.0" />
+                                                <Label text="+1 555-123-4567" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                        
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="text-muted" text="Member since:" prefWidth="120.0" />
+                                                <Label text="January 15, 2023" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                
+                                <Button styleClass="button-transparent" text="Edit Profile">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        
+                        <!-- Trainer Info -->
+                        <VBox styleClass="card">
+                            <children>
+                                <Label styleClass="card-title" text="My Trainer" />
+                                
+                                <VBox styleClass="padding">
+                                    <children>
+                                        <Label styleClass="font-weight-bold, font-lg" text="Sarah Johnson" />
+                                        <Label styleClass="text-secondary" text="Personal Trainer" />
+                                        
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Specializes in strength training and weight loss programs with 5+ years of experience." wrappingWidth="300.0">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                        
+                                        <Button styleClass="button-transparent" text="Contact Trainer">
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                        
+                        <!-- Recent Payments -->
+                        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="card-title" text="Recent Payments" />
+                                
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <VBox styleClass="bordered, rounded, padding-sm">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label text="Premium Membership" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-primary, font-weight-bold" text="$79.99" />
+                                                    </children>
+                                                </HBox>
+                                                <Label styleClass="text-muted, font-sm" text="April 01, 2023" />
+                                            </children>
+                                        </VBox>
+                                        
+                                        <VBox styleClass="bordered, rounded, padding-sm">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label text="Personal Training (3 sessions)" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-primary, font-weight-bold" text="$150.00" />
+                                                    </children>
+                                                </HBox>
+                                                <Label styleClass="text-muted, font-sm" text="March 15, 2023" />
+                                            </children>
+                                        </VBox>
+                                        
+                                        <VBox styleClass="bordered, rounded, padding-sm">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label text="Premium Membership" HBox.hgrow="ALWAYS" />
+                                                        <Label styleClass="text-primary, font-weight-bold" text="$79.99" />
+                                                    </children>
+                                                </HBox>
+                                                <Label styleClass="text-muted, font-sm" text="March 01, 2023" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                
+                                <Button styleClass="button-transparent" text="View All Payments">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

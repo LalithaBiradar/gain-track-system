@@ -1,0 +1,82 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<StackPane prefHeight="600.0" prefWidth="900.0" styleClass="bg-light" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gymmanagement.controllers.LoginController">
+    <children>
+        <!-- Background with gradient -->
+        <VBox alignment="CENTER" styleClass="bg-light" StackPane.alignment="CENTER">
+            <!-- Login Form Container -->
+            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                <!-- Left Image Side -->
+                <VBox alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="bg-primary" prefWidth="450.0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-title" text="GymTrack Pro" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-subtitle" text="Complete Gym Management System" />
+                        <Region VBox.vgrow="ALWAYS" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage your gym efficiently with our all-in-one solution for members, trainers, and administrators." wrappingWidth="350.0" />
+                        <Separator prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="20.0" top="20.0" />
+                            </VBox.margin>
+                        </Separator>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Features include member management, trainer scheduling, payment tracking, workout planning, and progress monitoring." wrappingWidth="350.0" />
+                    </children>
+                </VBox>
+                
+                <!-- Right Login Form -->
+                <VBox alignment="CENTER" prefWidth="450.0" styleClass="login-container">
+                    <padding>
+                        <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <Label styleClass="login-title" text="Log In" />
+                        <Label styleClass="login-subtitle" text="Enter your credentials to continue" />
+                        
+                        <VBox spacing="5.0">
+                            <Label text="Username" />
+                            <TextField fx:id="usernameField" promptText="Enter your username" />
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                            <padding>
+                                <Insets top="15.0" />
+                            </padding>
+                            <Label text="Password" />
+                            <PasswordField fx:id="passwordField" promptText="Enter your password" />
+                        </VBox>
+                        
+                        <Label fx:id="errorLabel" styleClass="error-label">
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                        </Label>
+                        
+                        <HBox alignment="CENTER_RIGHT">
+                            <padding>
+                                <Insets top="20.0" />
+                            </padding>
+                            <Button fx:id="loginButton" onAction="#handleLoginButton" styleClass="login-button" text="Log In" />
+                        </HBox>
+                        
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-muted" text="Demo Credentials:" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-muted" text="Admin: admin / admin123" textAlignment="CENTER" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-muted" text="Member: member1 / member123" textAlignment="CENTER" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-muted" text="Trainer: trainer1 / trainer123" textAlignment="CENTER" />
+                    </children>
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</StackPane>

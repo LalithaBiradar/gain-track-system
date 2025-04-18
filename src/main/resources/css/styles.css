@@ -1,0 +1,419 @@
+
+/* Main theme colors */
+* {
+    -fx-primary: #9b87f5;
+    -fx-secondary: #7E69AB;
+    -fx-primary-text: #1A1F2C;
+    -fx-secondary-text: #8E9196;
+    -fx-accent: #F97316;
+    -fx-accent-alt: #0EA5E9;
+    -fx-success: #4CAF50;
+    -fx-warning: #FFC107;
+    -fx-danger: #F44336;
+    -fx-light-background: #FFFFFF;
+    -fx-dark-background: #1A1F2C;
+    -fx-soft-green: #F2FCE2;
+    -fx-soft-blue: #D3E4FD;
+    -fx-card-background: #FFFFFF;
+    -fx-border-color: #D6BCFA;
+}
+
+/* ===== Base Elements ===== */
+.root {
+    -fx-font-family: 'Segoe UI', 'Arial', sans-serif;
+    -fx-background-color: -fx-light-background;
+    -fx-font-size: 14px;
+}
+
+.label {
+    -fx-text-fill: -fx-primary-text;
+}
+
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-border-color;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused, .combo-box:focused {
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2px;
+}
+
+/* ===== Button Styles ===== */
+.button {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 2, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary, 20%);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.button:pressed {
+    -fx-background-color: derive(-fx-primary, -10%);
+    -fx-translate-y: 1px;
+}
+
+.button-secondary {
+    -fx-background-color: -fx-secondary;
+}
+
+.button-secondary:hover {
+    -fx-background-color: derive(-fx-secondary, 20%);
+}
+
+.button-accent {
+    -fx-background-color: -fx-accent;
+}
+
+.button-accent:hover {
+    -fx-background-color: derive(-fx-accent, 20%);
+}
+
+.button-transparent {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-primary;
+    -fx-text-fill: -fx-primary;
+}
+
+.button-transparent:hover {
+    -fx-background-color: derive(-fx-primary, 90%);
+}
+
+/* ===== Login Screen ===== */
+.login-container {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10);
+    -fx-padding: 30px;
+}
+
+.login-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+    -fx-padding: 0 0 20px 0;
+}
+
+.login-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: -fx-secondary-text;
+    -fx-padding: 0 0 30px 0;
+}
+
+.login-button {
+    -fx-font-size: 16px;
+    -fx-padding: 12px 20px;
+    -fx-min-width: 120px;
+}
+
+.error-label {
+    -fx-text-fill: -fx-danger;
+    -fx-font-size: 13px;
+}
+
+/* ===== Dashboard Components ===== */
+.sidebar {
+    -fx-background-color: -fx-primary;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 8, 0);
+}
+
+.sidebar-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 20px 15px 25px 15px;
+}
+
+.sidebar-item {
+    -fx-padding: 12px 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.sidebar-item:hover {
+    -fx-background-color: derive(-fx-primary, -10%);
+}
+
+.sidebar-item-selected {
+    -fx-background-color: derive(-fx-primary, -20%);
+    -fx-border-color: white;
+}
+
+.content-area {
+    -fx-background-color: -fx-light-background;
+    -fx-padding: 20px;
+}
+
+.card {
+    -fx-background-color: -fx-card-background;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 4);
+    -fx-padding: 20px;
+}
+
+.dashboard-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 20px 0;
+}
+
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10px 0;
+}
+
+.stat-value {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-secondary-text;
+}
+
+/* ===== Table Styles ===== */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-border-color;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color: rgba(255,255,255,0.3);
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: -fx-border-color;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: derive(white, -2%);
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: derive(-fx-primary, 90%);
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: derive(-fx-primary, 70%);
+}
+
+/* ===== Charts ===== */
+.chart {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-series-line {
+    -fx-stroke-width: 3px;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: -fx-primary;
+}
+
+.default-color1.chart-series-line {
+    -fx-stroke: -fx-accent;
+}
+
+.default-color2.chart-series-line {
+    -fx-stroke: -fx-accent-alt;
+}
+
+.chart-line-symbol {
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: -fx-primary, white;
+}
+
+.default-color1.chart-line-symbol {
+    -fx-background-color: -fx-accent, white;
+}
+
+.default-color2.chart-line-symbol {
+    -fx-background-color: -fx-accent-alt, white;
+}
+
+/* ===== Status Colors ===== */
+.status-active {
+    -fx-text-fill: -fx-success;
+    -fx-font-weight: bold;
+}
+
+.status-inactive {
+    -fx-text-fill: -fx-secondary-text;
+}
+
+.status-warning {
+    -fx-text-fill: -fx-warning;
+    -fx-font-weight: bold;
+}
+
+.status-danger {
+    -fx-text-fill: -fx-danger;
+    -fx-font-weight: bold;
+}
+
+/* ===== Progress Indicators ===== */
+.progress-bar {
+    -fx-accent: -fx-primary;
+}
+
+.progress-bar .track {
+    -fx-background-color: derive(-fx-primary, 80%);
+}
+
+/* ===== Scroll Bar ===== */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: derive(-fx-primary, 30%);
+    -fx-background-radius: 15px;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+/* Utility classes */
+.text-primary {
+    -fx-text-fill: -fx-primary;
+}
+
+.text-secondary {
+    -fx-text-fill: -fx-secondary;
+}
+
+.text-accent {
+    -fx-text-fill: -fx-accent;
+}
+
+.text-light {
+    -fx-text-fill: white;
+}
+
+.text-dark {
+    -fx-text-fill: -fx-primary-text;
+}
+
+.text-muted {
+    -fx-text-fill: -fx-secondary-text;
+}
+
+.bg-primary {
+    -fx-background-color: -fx-primary;
+}
+
+.bg-secondary {
+    -fx-background-color: -fx-secondary;
+}
+
+.bg-accent {
+    -fx-background-color: -fx-accent;
+}
+
+.bg-light {
+    -fx-background-color: -fx-light-background;
+}
+
+.bg-dark {
+    -fx-background-color: -fx-dark-background;
+}
+
+.bg-soft-green {
+    -fx-background-color: -fx-soft-green;
+}
+
+.bg-soft-blue {
+    -fx-background-color: -fx-soft-blue;
+}
+
+.bordered {
+    -fx-border-color: -fx-border-color;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.rounded {
+    -fx-background-radius: 5px;
+}
+
+.padding-sm {
+    -fx-padding: 5px;
+}
+
+.padding {
+    -fx-padding: 10px;
+}
+
+.padding-lg {
+    -fx-padding: 20px;
+}
+
+.margin-sm {
+    -fx-margin: 5px;
+}
+
+.margin {
+    -fx-margin: 10px;
+}
+
+.margin-lg {
+    -fx-margin: 20px;
+}
+
+.font-weight-bold {
+    -fx-font-weight: bold;
+}
+
+.font-sm {
+    -fx-font-size: 12px;
+}
+
+.font-lg {
+    -fx-font-size: 18px;
+}
+
+.font-xl {
+    -fx-font-size: 24px;
+}
